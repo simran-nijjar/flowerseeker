@@ -17,6 +17,7 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainmenu);
         play_game_button();
+        options_button();
     }
 
     private void play_game_button(){
@@ -28,6 +29,18 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void options_button(){
+        Button option_button = findViewById(R.id.options_button);
+        option_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainMenu.this, GameSettings.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 }

@@ -21,6 +21,10 @@
             android:exported="true"
             android:label="Play Game"
             android:parentActivityName=".MainMenu" />
+        <activity android:name=".GameSettings"
+            android:exported="true"
+            android:label="Game Settings"
+            android:parentActivityName=".MainMenu" />
         <activity
             android:name=".MainActivity"
             android:label="Welcome to Flower Seeker"
