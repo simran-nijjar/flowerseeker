@@ -18,9 +18,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class GameScreen extends AppCompatActivity {
-    public static final int NUM_ROWS = 10;
-    public static final int NUM_COLS = 5;
-    Button buttons[][] = new Button[NUM_ROWS][NUM_COLS];
+    Button buttons[][] = new Button[GameSettings.NUM_ROWS][GameSettings.NUM_COLS];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +29,14 @@ public class GameScreen extends AppCompatActivity {
 
     private void populate_buttons(){
         TableLayout table = findViewById(R.id.table_for_flower_buttons);
-        for (int row = 0; row < NUM_ROWS; row++){
+        for (int row = 0; row < GameSettings.NUM_ROWS; row++){
             TableRow table_row = new TableRow(this);
             table_row.setLayoutParams(new TableLayout.LayoutParams(
                     TableLayout.LayoutParams.MATCH_PARENT,
                     TableLayout.LayoutParams.MATCH_PARENT,
                     1.0f));
             table.addView(table_row);
-            for (int col = 0; col < NUM_COLS; col++){
+            for (int col = 0; col < GameSettings.NUM_COLS; col++){
                 final int FINAL_COL = col;
                 final int FINAL_ROW = row;
                 Button btn = new Button(this);
@@ -79,8 +77,8 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void lock_button_sizes(){
-        for (int row = 0; row < NUM_ROWS; row++){
-            for (int col = 0; col < NUM_COLS; col++){
+        for (int row = 0; row < GameSettings.NUM_ROWS; row++){
+            for (int col = 0; col < GameSettings.NUM_COLS; col++){
                 Button btn = buttons[row][col];
                 int width = btn.getWidth();
                 btn.setMinWidth(width);
