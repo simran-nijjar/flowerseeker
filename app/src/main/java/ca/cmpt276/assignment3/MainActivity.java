@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         skip_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //When edit is false, do not display the "Delete button"
                 Intent intent = new Intent(MainActivity.this, MainMenu.class);
                 startActivity(intent);
             }

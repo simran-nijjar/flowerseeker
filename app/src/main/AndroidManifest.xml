@@ -17,6 +17,10 @@
             android:exported="true"
             android:label="Main Menu"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".GameScreen"
+            android:exported="true"
+            android:label="Play Game"
+            android:parentActivityName=".MainMenu" />
         <activity
             android:name=".MainActivity"
             android:label="Welcome to Flower Seeker"
