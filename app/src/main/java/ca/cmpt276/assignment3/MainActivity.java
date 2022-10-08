@@ -14,9 +14,12 @@ package ca.cmpt276.assignment3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +38,21 @@ public class MainActivity extends AppCompatActivity {
         image_view3 = findViewById(R.id.blue_flower3);
         spin_animation();
         fade_in();
+        main_menu_button();
     }
+
+    private void main_menu_button() {
+        Button skip_button = findViewById(R.id.skip_button);
+        skip_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //When edit is false, do not display the "Delete button"
+                Intent intent = new Intent(MainActivity.this, MainMenu.class);
+                startActivity(intent);
+            }
+        });
+    }
+
     private void spin_animation() {
         spinAnimation = AnimationUtils.loadAnimation(this,R.anim.spinright);
         image_view1.startAnimation(spinAnimation);
