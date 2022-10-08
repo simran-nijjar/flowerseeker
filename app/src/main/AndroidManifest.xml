@@ -19,6 +19,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
+            android:label="Welcome to Flower Seeker"
             android:exported="true"
             android:screenOrientation="landscape"
             android:configChanges="keyboard|orientation|keyboardHidden|screenSize">
