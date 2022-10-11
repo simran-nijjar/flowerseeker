@@ -42,33 +42,31 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_board_size"
-        app:layout_constraintVertical_bias="0.093" />
-
-    <Spinner
-        android:id="@+id/dropdown_board_size"
-        android:layout_width="178dp"
-        android:layout_height="48dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintHorizontal_bias="0.836"
         app:layout_constraintStart_toEndOf="@+id/txt_board_size"
         app:layout_constraintTop_toBottomOf="@+id/txt_game_settings"
-        app:layout_constraintVertical_bias="0.105" />
+        app:layout_constraintVertical_bias="0.106" />
 
-    <Spinner
-        android:id="@+id/dropdown_num_flowers"
-        android:layout_width="178dp"
-        android:layout_height="50dp"
-        android:spinnerMode="dropdown"
+    <RadioGroup
+        android:id="@+id/radio_group_board_size"
+        android:layout_width="205dp"
+        android:layout_height="266dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.813"
-        app:layout_constraintStart_toEndOf="@+id/txt_board_size"
-        app:layout_constraintTop_toBottomOf="@+id/dropdown_board_size"
-        app:layout_constraintVertical_bias="0.064" />
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_board_size"
+        app:layout_constraintVertical_bias="0.123" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_flowers"
+        android:layout_width="162dp"
+        android:layout_height="267dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toEndOf="@+id/radio_group_board_size"
+        app:layout_constraintTop_toBottomOf="@+id/txt_num_flowers"
+        app:layout_constraintVertical_bias="0.124" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
