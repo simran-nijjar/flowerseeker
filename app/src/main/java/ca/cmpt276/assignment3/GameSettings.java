@@ -66,21 +66,16 @@ public class GameSettings extends AppCompatActivity {
         if (board_size.equals("4 rows by 6 columns")){
             game_details.set_rows(4);
             game_details.set_cols(6);
-            editor.apply();
-            return;
         }
         if (board_size.equals("5 rows by 10 columns")){
             game_details.set_rows(5);
             game_details.set_cols(6);
-            editor.apply();
-            return;
         }
         if (board_size.equals("6 rows by 15 columns")) {
             game_details.set_rows(6);
             game_details.set_cols(15);
-            editor.apply();
-            return;
         }
+        editor.apply();
     }
 
     static public String get_board_size(Context context){
