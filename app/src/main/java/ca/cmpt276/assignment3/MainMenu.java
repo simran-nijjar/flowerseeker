@@ -36,7 +36,7 @@ public class MainMenu extends AppCompatActivity {
         option_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainMenu.this, GameSettings.class);
+                Intent intent = GameSettings.make_intent(MainMenu.this);
                 startActivity(intent);
             }
         });

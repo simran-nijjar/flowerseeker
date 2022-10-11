@@ -5,4 +5,6 @@
         <item>5 rows by 10 columns</item>
         <item>6 rows by 15 columns</item>
     </string-array>
+
+    <string name = "default_board_size">4 rows by 6 columns</string>
 </resources>

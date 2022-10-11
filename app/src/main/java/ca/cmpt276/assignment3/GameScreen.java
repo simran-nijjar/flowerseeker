@@ -17,26 +17,30 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ca.cmpt276.assignment3.model.GameDetails;
+
 public class GameScreen extends AppCompatActivity {
-    Button buttons[][] = new Button[GameSettings.NUM_ROWS][GameSettings.NUM_COLS];
+    private GameDetails game_details = GameDetails.getInstance();
+    Button buttons[][] = new Button[game_details.get_rows()][game_details.get_cols()];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_screen);
         populate_buttons();
+//        Toast.makeText(this,"ROWS " + game_details.get_rows() + " COLS " + game_details.get_cols(), Toast.LENGTH_SHORT).show();
     }
 
     private void populate_buttons(){
         TableLayout table = findViewById(R.id.table_for_flower_buttons);
-        for (int row = 0; row < GameSettings.NUM_ROWS; row++){
+        for (int row = 0; row < game_details.get_rows(); row++){
             TableRow table_row = new TableRow(this);
             table_row.setLayoutParams(new TableLayout.LayoutParams(
                     TableLayout.LayoutParams.MATCH_PARENT,
                     TableLayout.LayoutParams.MATCH_PARENT,
                     1.0f));
             table.addView(table_row);
-            for (int col = 0; col < GameSettings.NUM_COLS; col++){
+            for (int col = 0; col < game_details.get_cols(); col++){
                 final int FINAL_COL = col;
                 final int FINAL_ROW = row;
                 Button btn = new Button(this);
@@ -77,8 +81,8 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void lock_button_sizes(){
-        for (int row = 0; row < GameSettings.NUM_ROWS; row++){
-            for (int col = 0; col < GameSettings.NUM_COLS; col++){
+        for (int row = 0; row < game_details.get_rows(); row++){
+            for (int col = 0; col < game_details.get_cols(); col++){
                 Button btn = buttons[row][col];
                 int width = btn.getWidth();
                 btn.setMinWidth(width);
