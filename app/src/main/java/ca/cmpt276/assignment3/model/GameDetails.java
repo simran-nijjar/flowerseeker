@@ -12,6 +12,7 @@ public class GameDetails {
     public GameDetails(){
         rows = 4;
         cols = 6;
+        flowers = 6;
     }
 
     private static GameDetails instance;
@@ -30,11 +31,19 @@ public class GameDetails {
         this.cols = cols;
     }
 
+    public void set_flowers(int flowers){
+        this.flowers = flowers;
+    }
+
     public int get_rows(){
         return rows;
     }
 
     public int get_cols(){
         return cols;
+    }
+
+    public int get_flowers(){
+        return flowers;
     }
 }

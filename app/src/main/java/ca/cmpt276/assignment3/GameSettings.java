@@ -4,6 +4,7 @@
 
 package ca.cmpt276.assignment3;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -52,7 +53,7 @@ public class GameSettings extends AppCompatActivity {
 
             group.addView(button);
 
-            if (board_size == get_board_size(this)){
+            if (board_size.equals(get_board_size(this))){
                 button.setChecked(true);
             }
         }
@@ -62,6 +63,7 @@ public class GameSettings extends AppCompatActivity {
         SharedPreferences preferences = this.getSharedPreferences("Board Size Preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("Board Size", board_size);
+        editor.apply();
 
         if (board_size.equals("4 rows by 6 columns")){
             game_details.set_rows(4);
@@ -69,13 +71,12 @@ public class GameSettings extends AppCompatActivity {
         }
         if (board_size.equals("5 rows by 10 columns")){
             game_details.set_rows(5);
-            game_details.set_cols(6);
+            game_details.set_cols(10);
         }
         if (board_size.equals("6 rows by 15 columns")) {
             game_details.set_rows(6);
             game_details.set_cols(15);
         }
-        editor.apply();
     }
 
     static public String get_board_size(Context context){
@@ -84,24 +85,43 @@ public class GameSettings extends AppCompatActivity {
         return preferences.getString("Board Size", default_size);
     }
 
+    @SuppressLint("SetTextI18n")
     private void create_radio_flowers(){
         RadioGroup group = findViewById(R.id.radio_group_flowers);
-        String[] flowers_array = getResources().getStringArray(R.array.flowers);
+        int[] flowers_array = getResources().getIntArray(R.array.flowers);
 
         for (int i = 0; i < flowers_array.length; i++){
-            final String flowers = flowers_array[i];
+            final int flowers = flowers_array[i];
 
             RadioButton button = new RadioButton(this);
-            button.setText(getString(R.string.display_string_option, flowers));
+            button.setText(getString(R.string.display_flowers_string, flowers));
 
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(GameSettings.this, "You clicked " + flowers, Toast.LENGTH_SHORT).show();
+                    save_flowers(flowers);
                 }
             });
 
             group.addView(button);
+
+            if (flowers == get_saved_flowers(this)){
+                button.setChecked(true);
+            }
         }
+    }
+
+    private void save_flowers(int flowers) {
+        SharedPreferences preferences = this.getSharedPreferences("Flower Preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt("Number of flowers", flowers);
+        game_details.set_flowers(flowers);
+        editor.apply();
+    }
+
+    static public int get_saved_flowers(Context context){
+        SharedPreferences preferences = context.getSharedPreferences("Flower Preferences", MODE_PRIVATE);
+        int default_flowers = context.getResources().getInteger(R.integer.default_num_flowers);
+        return preferences.getInt("Number of flowers",default_flowers);
     }
 }
