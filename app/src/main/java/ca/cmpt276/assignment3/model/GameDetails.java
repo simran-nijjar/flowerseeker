@@ -1,8 +1,8 @@
+//Name: Simran Nijjar
+//Student Number: 301397295
+//Date: October 11, 2022
+
 package ca.cmpt276.assignment3.model;
-
-import android.widget.Button;
-
-import ca.cmpt276.assignment3.GameSettings;
 
 public class GameDetails {
     private int rows;
