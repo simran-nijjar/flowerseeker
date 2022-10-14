@@ -4,6 +4,7 @@
 
 package ca.cmpt276.assignment3;
 
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -26,6 +27,11 @@ public class GameScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String saved_board_size = GameSettings.get_board_size(this);
+        int saved_flowers = GameSettings.get_saved_flowers(this);
+        game_details.set_board_size(saved_board_size);
+        game_details.set_flowers(saved_flowers);
+        buttons = new Button[game_details.get_rows()][game_details.get_cols()];
         setContentView(R.layout.game_screen);
         populate_buttons();
     }
