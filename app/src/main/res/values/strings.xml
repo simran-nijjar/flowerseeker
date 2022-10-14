@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Flower Seeker</string>
+    <string name="display_string_option">"%1s "</string>
+    <string name="display_flowers_string">"%1$d flowers"</string>
+</resources>
