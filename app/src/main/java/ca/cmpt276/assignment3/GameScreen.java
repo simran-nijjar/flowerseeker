@@ -22,7 +22,7 @@ import ca.cmpt276.assignment3.model.GameDetails;
 
 public class GameScreen extends AppCompatActivity {
     private GameDetails game_details = GameDetails.getInstance();
-    Button buttons[][] = new Button[game_details.get_rows()][game_details.get_cols()];
+    Button buttons[][];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
