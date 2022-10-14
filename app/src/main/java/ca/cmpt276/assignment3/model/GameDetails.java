@@ -46,4 +46,19 @@ public class GameDetails {
     public int get_flowers(){
         return flowers;
     }
+
+    public void set_board_size(String board_size){
+        if (board_size.equals("4 rows by 6 columns")){
+            set_rows(4);
+            set_cols(6);
+        }
+        if (board_size.equals("5 rows by 10 columns")){
+            set_rows(5);
+            set_cols(10);
+        }
+        if (board_size.equals("6 rows by 15 columns")) {
+            set_rows(6);
+            set_cols(15);
+        }
+    }
 }
