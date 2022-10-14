@@ -26,9 +26,6 @@ public class GameSettings extends AppCompatActivity {
         game_details = GameDetails.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_settings);
-        if (game_details.get_rows() == 4 && game_details.get_cols() == 6) {
-            save_board_size("4 rows by 6 columns");
-        }
         create_radio_board_size();
         create_radio_flowers();
     }
