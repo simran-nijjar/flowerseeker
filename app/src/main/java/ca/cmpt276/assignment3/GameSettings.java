@@ -21,6 +21,7 @@ import ca.cmpt276.assignment3.model.GameDetails;
 
 public class GameSettings extends AppCompatActivity {
     private GameDetails game_details;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         game_details = GameDetails.getInstance();
