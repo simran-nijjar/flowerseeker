@@ -4,6 +4,8 @@
 
 package ca.cmpt276.assignment3;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -34,6 +36,10 @@ public class GameScreen extends AppCompatActivity {
         buttons = new Button[game_details.get_rows()][game_details.get_cols()];
         setContentView(R.layout.game_screen);
         populate_buttons();
+    }
+
+    public static Intent make_intent(Context context){
+        return new Intent(context, GameScreen.class);
     }
 
     private void populate_buttons(){

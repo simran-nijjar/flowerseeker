@@ -2,4 +2,11 @@
     <string name="app_name">Flower Seeker</string>
     <string name="display_string_option">"%1s "</string>
     <string name="display_flowers_string">"%1$d flowers"</string>
+    <string name="course_hyperlink"><a href="https://opencoursehub.cs.sfu.ca/bfraser/grav-cms/cmpt276/home">CMPT 276 course information</a></string>
+    <string name="blueflower_hyperlink"><a href="https://www.pngegg.com/en/png-nmqrn/download\">blueflower.png source</a></string>
+    <string name="gamebackground_hyperlink"><a href="https://www.vecteezy.com/vector-art/418915-nature-scene-of-a-park-with-rainbow\">gamebackground.png source</a></string>
+    <string name="skybackground_hyperlink"><a href="https://www.vecteezy.com/vector-art/6631117-bright-cloudy-sky-cartoon-vector-illustration-background">skybackground.png source</a></string>
+
+
+
 </resources>
