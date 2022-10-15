@@ -37,7 +37,7 @@
         android:id="@+id/author_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="By: Simran Nijjar"
+        android:text="By: Simran Nijjar and Tomi Lui"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

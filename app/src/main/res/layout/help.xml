@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/skybackground">
+
+    <TextView
+        android:id="@+id/txt_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Help"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.038" />
+
+    <TextView
+        android:id="@+id/game_description"
+        android:layout_width="684dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="16dp"
+        android:text="We need your help to seek all of the flowers hidden in the forest! Choose the size of the board and the number of flowers to search for by clicking “Options” in the main menu. Click each button in the board game to make your move. If you see a flower, good job you found a flower! If you see a number use that to your advantage because that tells you how many flowers are in that row and column. To start seeking for flowers, click “Play Game” in the main menu!"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_help"
+        app:layout_constraintVertical_bias="0.069" />
+
+    <TextView
+        android:id="@+id/txt_authors"
+        android:layout_width="694dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="16dp"
+        android:text="Authors: Simran Nijjar and Tomi Lui collaborated to make Flower Seeker inspired by Mine Sweeper for their assignment in CMPT 276 taught by Dr. Brian Fraser. More information about the course can be found here:"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/game_description"
+        app:layout_constraintVertical_bias="0.175" />
+
+    <TextView
+        android:id="@+id/course_link"
+        android:layout_width="248dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="252dp"
+        android:text="@string/course_hyperlink"
+        android:textAlignment="center"
+        android:textColorLink="#2434A5"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_authors"
+        app:layout_constraintVertical_bias="0.253" />
+
+    <TextView
+        android:id="@+id/blueflower_link"
+        android:layout_width="155dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/blueflower_hyperlink"
+        android:textAlignment="center"
+        android:textColorLink="#2434A5"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sources"
+        app:layout_constraintVertical_bias="0.112" />
+
+    <TextView
+        android:id="@+id/txt_sources"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Sources:"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/course_link"
+        app:layout_constraintVertical_bias="0.345" />
+
+    <TextView
+        android:id="@+id/gamebackground_link"
+        android:layout_width="202dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="192dp"
+        android:text="@string/gamebackground_hyperlink"
+        android:textAlignment="center"
+        android:textColorLink="#2434A5"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sources"
+        app:layout_constraintVertical_bias="0.112" />
+
+    <TextView
+        android:id="@+id/skybackground_link"
+        android:layout_width="202dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="420dp"
+        android:text="@string/skybackground_hyperlink"
+        android:textAlignment="center"
+        android:textColorLink="#2434A5"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_sources"
+        app:layout_constraintVertical_bias="0.111" />
+</androidx.constraintlayout.widget.ConstraintLayout>
