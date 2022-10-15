@@ -12,10 +12,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +27,8 @@ import ca.cmpt276.assignment3.model.GameDetails;
 public class GameScreen extends AppCompatActivity {
     private GameDetails game_details = GameDetails.getInstance();
     Button buttons[][];
+    private final String TAG = "GAME_SCREEN_TAG";
+    int scans_used_count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +37,16 @@ public class GameScreen extends AppCompatActivity {
         int saved_flowers = GameSettings.get_saved_flowers(this);
         game_details.set_board_size(saved_board_size);
         game_details.set_flowers(saved_flowers);
+        game_details.restart_game();
         buttons = new Button[game_details.get_rows()][game_details.get_cols()];
+        scans_used_count = 0;
         setContentView(R.layout.game_screen);
         populate_buttons();
+        // remove this later
+//        String s = game_details.show_flowers_coordinates();
+//        Log.d(TAG, "\nFlower coordinates: ");
+//        Log.d(TAG, s);
+
     }
 
     public static Intent make_intent(Context context){
@@ -59,13 +70,14 @@ public class GameScreen extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
-                btn.setText("" + col + "," + row);
+//                btn.setText("" + row + "," + col);
                 //Prevents text from being cut out
                 btn.setPadding(0,0,0,0);
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         button_clicked(FINAL_COL,FINAL_ROW);
+                        btn.setEnabled(false);
                     }
                 });
                 table_row.addView(btn);
@@ -75,7 +87,8 @@ public class GameScreen extends AppCompatActivity {
     }
 
     private void button_clicked(int col, int row){
-        Toast.makeText(this,"Button clicked: " + col + ", " + row,Toast.LENGTH_SHORT).show();
+
+//        Toast.makeText(this,"Button clicked: " + col + ", " + row,Toast.LENGTH_SHORT).show();
         Button btn = buttons[row][col];
         //Lock button sizes
         lock_button_sizes();
@@ -85,9 +98,32 @@ public class GameScreen extends AppCompatActivity {
         Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.blueflower);
         Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, new_width, new_height, true);
         Resources resource = getResources();
-        btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
-        //Change text on button
-        btn.setText("" + col);
+
+        int hint = game_details.get_hint(row, col);
+        // if user guessed correctly, display flower
+        if (hint == -1) {
+            btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
+            // update ui
+            TextView flowers_found_tx = findViewById(R.id.tx_found_flowers_count);
+            flowers_found_tx.setText(Integer.toString(game_details.get_num_of_flowers_found()));
+        }
+        else {
+            //Change text on button
+            btn.setText(Integer.toString(hint));
+        }
+
+        boolean contains = game_details.has_flower(row, col);
+        Log.d(TAG, "row: " + row + " col: " + col + "\nCONTAINS: " + contains);
+
+        // update scans used
+        TextView scans_used = findViewById(R.id.tx_scans_count);
+        scans_used_count ++;
+        scans_used.setText(Integer.toString(scans_used_count));
+
+        // check if all flowers have been found
+        if (game_details.game_complete()) {
+            Toast.makeText(this, "GAME COMPLETE!!!", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
