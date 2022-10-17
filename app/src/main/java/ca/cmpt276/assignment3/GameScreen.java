@@ -4,7 +4,9 @@
 
 package ca.cmpt276.assignment3;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -46,6 +48,7 @@ public class GameScreen extends AppCompatActivity {
 //        String s = game_details.show_flowers_coordinates();
 //        Log.d(TAG, "\nFlower coordinates: ");
 //        Log.d(TAG, s);
+
 
     }
 
@@ -106,6 +109,8 @@ public class GameScreen extends AppCompatActivity {
             // update ui
             TextView flowers_found_tx = findViewById(R.id.tx_found_flowers_count);
             flowers_found_tx.setText(Integer.toString(game_details.get_num_of_flowers_found()));
+
+            decrement_hints(row, col);
         }
         else {
             //Change text on button
@@ -122,10 +127,62 @@ public class GameScreen extends AppCompatActivity {
 
         // check if all flowers have been found
         if (game_details.game_complete()) {
-            Toast.makeText(this, "GAME COMPLETE!!!", Toast.LENGTH_SHORT).show();
+            finish_game_popup();
+//            Toast.makeText(this, "GAME COMPLETE!!!", Toast.LENGTH_SHORT).show();
         }
 
     }
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
+    private void decrement_hints(int row, int col) {
+        for (int i = 0; i < game_details.get_rows(); i++) {
+            for (int j = 0; j < game_details.get_cols(); j++) {
+                if (i == row || j == col) {
+                    Button curButton = buttons[i][j];
+                    String btnText = (String) curButton.getText();
+//                    Toast.makeText(this, btnText, Toast.LENGTH_SHORT).show();
+
+                    if (isNumeric(btnText)) {
+                        curButton.setText(Integer.toString(Integer.parseInt(btnText) -1));
+                    }
+                }
+            }
+
+        }
+    }
+
+    void finish_game_popup() {
+
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        finish();
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        //No button clicked
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("congratulations, you won!").setPositiveButton("return", dialogClickListener).show();
+//                .setNegativeButton("No", dialogClickListener).show();
+    }
+
 
     private void lock_button_sizes(){
         for (int row = 0; row < game_details.get_rows(); row++){
