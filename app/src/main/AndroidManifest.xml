@@ -33,7 +33,7 @@
             android:configChanges="keyboard|orientation|keyboardHidden|screenSize"/>
         <activity android:name=".Help"
             android:exported="true"
-            android:label="Game Settings"
+            android:label="Help"
             android:parentActivityName=".MainMenu"
             android:screenOrientation="landscape"
             android:configChanges="keyboard|orientation|keyboardHidden|screenSize"/>

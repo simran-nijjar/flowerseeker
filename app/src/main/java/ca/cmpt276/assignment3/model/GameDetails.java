@@ -2,10 +2,18 @@
 //Student Number: 301397295, 301426310
 //Date: October 11, 2022
 
+/*
+    I watched Dr. Brian Fraser's videos listed under Assignment 3 on the course page
+    to get an understanding on how to do the assignment and followed code showed in the videos.
+ */
+
 package ca.cmpt276.assignment3.model;
 
 import java.util.HashSet;
 
+/*
+    GameDetails class is the Singleton class that stores the options data for playing the game
+ */
 public class GameDetails {
     private int rows;
     private int cols;
@@ -22,6 +30,9 @@ public class GameDetails {
         }
     }
 
+    /*
+        Constructor for creating a new game with pre-set settings
+     */
     private GameDetails(){
         rows = 4;
         cols = 6;
@@ -44,6 +55,9 @@ public class GameDetails {
         return instance;
     }
 
+    /*
+        Setters and getters for the game options
+     */
     public void set_rows(int rows) {
         this.rows = rows;
     }
@@ -67,11 +81,6 @@ public class GameDetails {
     public int get_num_of_flowers_found() {
         return num_of_flowers_found;
     }
-
-    public int get_flowers(){
-        return flowers;
-    }
-
 
     private int get_random_int(int min, int max) {
         return (int)(Math.random()*(max-min+1)+min);
@@ -144,6 +153,11 @@ public class GameDetails {
     public boolean game_complete() {
         return num_of_flowers_found == flowers;
     }
+
+    /*
+       This method will set the rows and cols based on what the user
+       clicked in the Game Settings screen.
+     */
 
     public void set_board_size(String board_size){
         if (board_size.equals("4 rows by 6 columns")){
