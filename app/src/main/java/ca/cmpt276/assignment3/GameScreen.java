@@ -1,6 +1,11 @@
-//Name: Simran Nijjar
-//Student Number: 301397295
+//Name: Simran Nijjar, Tomi Lui
+//Student Number: 301397295, 301426310
 //Date: October 8, 2022
+
+/*
+I watched Dr. Brian Fraser's videos listed under Assignment 3 on the course page to learn how
+to populate buttons, display image or number when button is clicked, and to lock button sizer
+ */
 
 package ca.cmpt276.assignment3;
 
@@ -8,7 +13,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,11 +24,14 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import ca.cmpt276.assignment3.model.GameDetails;
+
+/*
+    GameScreen class displays the game to the player and allows them to play
+ */
 
 public class GameScreen extends AppCompatActivity {
     private GameDetails game_details = GameDetails.getInstance();
@@ -35,6 +42,10 @@ public class GameScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /*
+            Get the saved board size and saved flowers from when the application
+            was last run using methods that use SharedPreferences to create the new game using same option
+         */
         String saved_board_size = GameSettings.get_board_size(this);
         int saved_flowers = GameSettings.get_saved_flowers(this);
         game_details.set_board_size(saved_board_size);
@@ -52,10 +63,17 @@ public class GameScreen extends AppCompatActivity {
 
     }
 
+    /*
+        This method returns the Game Screen intent to the Main Menu
+     */
     public static Intent make_intent(Context context){
         return new Intent(context, GameScreen.class);
     }
 
+    /*
+        This method will populate the buttons the user plays with based on the board size set in options
+        When a button is clicked, button_clicked() is clicked which will either display a flower or hint
+     */
     private void populate_buttons(){
         TableLayout table = findViewById(R.id.table_for_flower_buttons);
         for (int row = 0; row < game_details.get_rows(); row++){
@@ -73,8 +91,7 @@ public class GameScreen extends AppCompatActivity {
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
-//                btn.setText("" + row + "," + col);
-                //Prevents text from being cut out
+
                 btn.setPadding(0,0,0,0);
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -89,9 +106,12 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
+    /*
+        This method will display if the use guessed correctly with locked button sizes so image
+        does not distort the button. Otherwise, display number of flowers in row and col.
+     */
     private void button_clicked(int col, int row){
 
-//        Toast.makeText(this,"Button clicked: " + col + ", " + row,Toast.LENGTH_SHORT).show();
         Button btn = buttons[row][col];
         //Lock button sizes
         lock_button_sizes();
@@ -183,7 +203,9 @@ public class GameScreen extends AppCompatActivity {
 //                .setNegativeButton("No", dialogClickListener).show();
     }
 
-
+    /*
+        This method locks the button sizes so that when user clicks a button, the button does not change size
+     */
     private void lock_button_sizes(){
         for (int row = 0; row < game_details.get_rows(); row++){
             for (int col = 0; col < game_details.get_cols(); col++){
