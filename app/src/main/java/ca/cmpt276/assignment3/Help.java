@@ -28,10 +28,10 @@ public class Help extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.help);
-        course_link();
-        flower_link();
-        gamebackground_link();
-        skybackground_link();
+        display_course_link();
+        display_flower_link();
+        display_gamebackground_link();
+        display_skybackground_link();
     }
 
     /*
@@ -44,16 +44,17 @@ public class Help extends AppCompatActivity {
     /*
         Display the 276 course home-page hyperlink using value in strings.xml
      */
-    private void course_link(){
+    private void display_course_link(){
         TextView homepage_link = findViewById(R.id.course_link);
         homepage_link.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     /*
       Display the name of the flower that was used in the buttons in GameScreen,
-      the three animated flowers on the welcome screen, the flower on the main menu screen
+      the three animated flowers on the welcome screen, the flower on the main menu screen,
+      and the two flowers shown in the dialog when user finishes a game
    */
-    private void flower_link(){
+    private void display_flower_link(){
         TextView flower_source_link = findViewById(R.id.blueflower_link);
         flower_source_link.setMovementMethod(LinkMovementMethod.getInstance());
     }
@@ -62,7 +63,7 @@ public class Help extends AppCompatActivity {
       Display the name of the game background that was used as the background on the
       welcome screen and the background of the game screen when the user plays
    */
-    private void gamebackground_link(){
+    private void display_gamebackground_link(){
         TextView gamebackground_source_link = findViewById(R.id.gamebackground_link);
         gamebackground_source_link.setMovementMethod(LinkMovementMethod.getInstance());
     }
@@ -71,7 +72,7 @@ public class Help extends AppCompatActivity {
       Display the name of the sky background that was used as the background on the
       main menu screen, game settings screen, and the help screen
    */
-    private void skybackground_link(){
+    private void display_skybackground_link(){
         TextView skybackground_source_link = findViewById(R.id.skybackground_link);
         skybackground_source_link.setMovementMethod(LinkMovementMethod.getInstance());
     }

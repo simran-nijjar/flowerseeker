@@ -24,11 +24,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 /*
-    MainActivity class displays the welcome screen to the user which displays
+    WelcomeScreen class displays the welcome screen to the user which displays
     name of application, name of authors, images of flowers that are animated,
     and a skip button that skips to the main menu
  */
-public class MainActivity extends AppCompatActivity {
+public class WelcomeScreen extends AppCompatActivity {
     Animation spinAnimation;
     Animation fadeIn;
     private ImageView image_view1;
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Three images are shown on welcome screen
         image_view1 = findViewById(R.id.blue_flower1);
         image_view2 = findViewById(R.id.blue_flower2);
         image_view3 = findViewById(R.id.blue_flower3);
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         skip_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainMenu.class);
+                Intent intent = new Intent(WelcomeScreen.this, MainMenu.class);
                 startActivity(intent);
             }
         });
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     /*
         This creates the spin animation which gets the animation details from spinright.xml
+        One flower is spinning
      */
     private void spin_animation() {
         spinAnimation = AnimationUtils.loadAnimation(this,R.anim.spinright);
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     /*
         This creates the fade in animation which gets the animation details from fadein.xml
+        Two flowers are faded in
      */
     private void fade_in() {
         fadeIn = AnimationUtils.loadAnimation(this,R.anim.fadein);
