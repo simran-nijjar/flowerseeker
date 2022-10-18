@@ -114,6 +114,10 @@ public class GameDetails {
         return false;
     }
 
+    /**
+     * This is a helper function for debugging. It will return a string showing the location of all
+     * flowers
+     */
     public String show_flowers_coordinates() {
         StringBuilder s = new StringBuilder() ;
         for (Cell c : set) {
@@ -124,9 +128,9 @@ public class GameDetails {
     }
 
     /*
-            If the cell does not contain a flower, return the how many flowers exist in the same row
-        and col
-            if the cell contain a flower, return -1
+     * If the cell does not contain a flower, return the how many flowers exist in the same row
+     * and col
+     * if the cell contain a flower, return -1
      */
     public int get_hint(int row_num, int col_num) {
         if (has_flower(row_num, col_num)) {

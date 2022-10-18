@@ -158,6 +158,10 @@ public class GameScreen extends AppCompatActivity {
         }
 
     }
+
+    /*
+     * Helper function to check if string is a number
+     */
     public static boolean isNumeric(String strNum) {
         if (strNum == null) {
             return false;
@@ -170,15 +174,19 @@ public class GameScreen extends AppCompatActivity {
         return true;
     }
 
+    /*
+     * when a flower is found, decrement the hint count for each button that is on either on the same
+     * row or col of the flower button found.
+     */
     private void decrement_hints(int row, int col) {
         for (int i = 0; i < game_details.get_rows(); i++) {
             for (int j = 0; j < game_details.get_cols(); j++) {
                 if (i == row || j == col) {
                     Button curButton = buttons[i][j];
                     String btnText = (String) curButton.getText();
-//                    Toast.makeText(this, btnText, Toast.LENGTH_SHORT).show();
 
                     if (isNumeric(btnText)) {
+                        // decrement button hint
                         curButton.setText(Integer.toString(Integer.parseInt(btnText) -1));
                     }
                 }
@@ -187,6 +195,9 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
+    /*
+     * show a pop up when game is finished
+     */
     void finish_game_popup() {
         ImageView congrats_image = new ImageView(this);
         congrats_image.setImageResource(R.drawable.blueflower);
@@ -210,7 +221,6 @@ public class GameScreen extends AppCompatActivity {
         builder.setView(congrats_dialog);
 
         builder.setPositiveButton("return", dialogClickListener).show();
-
 //                .setNegativeButton("No", dialogClickListener).show();
     }
 
