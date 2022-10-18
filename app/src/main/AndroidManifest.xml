@@ -16,7 +16,7 @@
         <activity android:name=".MainMenu"
             android:exported="true"
             android:label="Main Menu"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".WelcomeScreen"
             android:screenOrientation="landscape"
             android:configChanges="keyboard|orientation|keyboardHidden|screenSize"/>
         <activity android:name=".GameScreen"
@@ -38,7 +38,7 @@
             android:screenOrientation="landscape"
             android:configChanges="keyboard|orientation|keyboardHidden|screenSize"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".WelcomeScreen"
             android:label="Welcome to Flower Seeker"
             android:exported="true"
             android:screenOrientation="landscape"

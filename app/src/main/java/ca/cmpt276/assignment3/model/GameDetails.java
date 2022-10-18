@@ -20,6 +20,7 @@ public class GameDetails {
     private int flowers;
     private int num_of_flowers_found;
     HashSet<Cell> set;
+    private static GameDetails instance;
 
     private class Cell {
         public int row;
@@ -47,7 +48,9 @@ public class GameDetails {
         generate_flower_coordinates(flowers);
     }
 
-    private static GameDetails instance;
+    /*
+        Returns the instance of GameDetails
+     */
     public static GameDetails getInstance(){
         if (instance == null){
             instance = new GameDetails();
@@ -155,8 +158,7 @@ public class GameDetails {
     }
 
     /*
-       This method will set the rows and cols based on what the user
-       clicked in the Game Settings screen.
+       Set the rows and cols based on what the user clicked in the Game Settings screen.
      */
     public void set_board_size(String board_size){
         if (board_size.equals("4 rows by 6 columns")){

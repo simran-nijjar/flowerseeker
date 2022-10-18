@@ -83,7 +83,9 @@ public class GameScreen extends AppCompatActivity {
     private void populate_buttons(){
         TableLayout table = findViewById(R.id.table_for_flower_buttons);
         for (int row = 0; row < game_details.get_rows(); row++){
+            //Add row into table for every row from game details
             TableRow table_row = new TableRow(this);
+            //Match width and height of table to parent and scale weight
             table_row.setLayoutParams(new TableLayout.LayoutParams(
                     TableLayout.LayoutParams.MATCH_PARENT,
                     TableLayout.LayoutParams.MATCH_PARENT,
@@ -92,16 +94,20 @@ public class GameScreen extends AppCompatActivity {
             for (int col = 0; col < game_details.get_cols(); col++){
                 final int FINAL_COL = col;
                 final int FINAL_ROW = row;
+                //Add button into each column of each row
                 Button btn = new Button(this);
+                //Match width and height of buttons to parent and scale weight
                 btn.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
                         1.0f));
 
+                //Set the padding so that the text is not cut off
                 btn.setPadding(0,0,0,0);
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        //When button is clicked check if button contains a flower or not
                         button_clicked(FINAL_COL,FINAL_ROW);
                         btn.setEnabled(false);
                     }
@@ -117,7 +123,6 @@ public class GameScreen extends AppCompatActivity {
         does not distort the button. Otherwise, display number of flowers in row and col.
      */
     private void button_clicked(int col, int row){
-
         Button btn = buttons[row][col];
         //Lock button sizes
         lock_button_sizes();
@@ -221,6 +226,7 @@ public class GameScreen extends AppCompatActivity {
         for (int row = 0; row < game_details.get_rows(); row++){
             for (int col = 0; col < game_details.get_cols(); col++){
                 Button btn = buttons[row][col];
+                //Set the width and height of button to not change when user clicks button
                 int width = btn.getWidth();
                 btn.setMinWidth(width);
                 btn.setMaxWidth(width);
