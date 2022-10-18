@@ -158,7 +158,6 @@ public class GameDetails {
        This method will set the rows and cols based on what the user
        clicked in the Game Settings screen.
      */
-
     public void set_board_size(String board_size){
         if (board_size.equals("4 rows by 6 columns")){
             set_rows(4);
