@@ -3,8 +3,12 @@
 //Date: October 8, 2022
 
 /*
-I watched Dr. Brian Fraser's videos listed under Assignment 3 on the course page to learn how
-to populate buttons, display image or number when button is clicked, and to lock button sizer
+    I watched Dr. Brian Fraser's videos listed under Assignment 3 on the course page to learn how
+    to populate buttons, display image or number when button is clicked, and to lock button sizer
+    I looked at https://stackoverflow.com/a/6276592 to learn how to add images to an alert dialog
+    The following lines of code reference this website:
+    LayoutInflater inflater = LayoutInflater.from(GameScreen.this);
+    final View congrats_dialog = inflater.inflate(R.layout.congratulations_dialog, null);
  */
 
 package ca.cmpt276.assignment3;
@@ -19,8 +23,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -182,7 +188,8 @@ public class GameScreen extends AppCompatActivity {
     }
 
     void finish_game_popup() {
-
+        ImageView congrats_image = new ImageView(this);
+        congrats_image.setImageResource(R.drawable.blueflower);
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -197,9 +204,13 @@ public class GameScreen extends AppCompatActivity {
                 }
             }
         };
-
+        LayoutInflater inflater = LayoutInflater.from(GameScreen.this);
+        final View congrats_dialog = inflater.inflate(R.layout.congratulations_dialog, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("congratulations, you won!").setPositiveButton("return", dialogClickListener).show();
+        builder.setView(congrats_dialog);
+
+        builder.setPositiveButton("return", dialogClickListener).show();
+
 //                .setNegativeButton("No", dialogClickListener).show();
     }
 
