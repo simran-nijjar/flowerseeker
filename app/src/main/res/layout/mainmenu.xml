@@ -6,52 +6,95 @@
     android:layout_height="match_parent"
     android:background="@drawable/skybackground">
 
-    <Button
-        android:id="@+id/options_button"
-        android:layout_width="150dp"
-        android:layout_height="68dp"
-        android:text="Options"
+
+    <ImageView
+        android:id="@+id/blue_flower_main_menu4"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_button"
+        app:layout_constraintVertical_bias="0.619"
+        app:srcCompat="@drawable/blueflower" />
+
+    <ImageView
+        android:id="@+id/blue_flower_main_menu3"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/play_game_button"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.619"
+        app:srcCompat="@drawable/blueflower" />
 
-    <Button
-        android:id="@+id/play_game_button"
-        android:layout_width="150dp"
-        android:layout_height="69dp"
-        android:text="Play Game"
+    <ImageView
+        android:id="@+id/blue_flower_main_menu2"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.045"
+        app:srcCompat="@drawable/blueflower" />
 
-    <Button
-        android:id="@+id/help_button"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:text="Help"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/options_button"
+        android:layout_width="189dp"
+        android:layout_height="176dp"
+        android:background="@drawable/blueflower"
+        android:text="Options"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/options_button"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/play_game_button"
+        android:layout_width="196dp"
+        android:layout_height="176dp"
+        android:background="@drawable/blueflower"
+        android:text="Play \nGame"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/help_button"
+        android:layout_width="194dp"
+        android:layout_height="177dp"
+        android:background="@drawable/blueflower"
+        android:text="Help"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/blue_flower_main_menu"
-        android:layout_width="210dp"
-        android:layout_height="273dp"
+        android:layout_width="62dp"
+        android:layout_height="57dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.588"
-        app:layout_constraintStart_toEndOf="@+id/options_button"
+        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.096"
+        app:layout_constraintVertical_bias="0.045"
         app:srcCompat="@drawable/blueflower" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
