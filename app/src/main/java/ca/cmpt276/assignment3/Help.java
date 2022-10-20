@@ -51,8 +51,8 @@ public class Help extends AppCompatActivity {
 
     /*
       Display the name of the flower that was used in the buttons in GameScreen,
-      the three animated flowers on the welcome screen, the flower on the main menu screen,
-      and the two flowers shown in the dialog when user finishes a game
+      the three animated flowers on the welcome screen, the flowers on the main menu screen,
+     the two flowers shown in the dialog when user finishes a game, and the buttons that are flowers
    */
     private void display_flower_link(){
         TextView flower_source_link = findViewById(R.id.blueflower_link);
