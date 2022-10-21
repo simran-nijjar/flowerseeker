@@ -68,15 +68,7 @@ public class GameScreen extends AppCompatActivity {
         scans_used_count = 0;
         setContentView(R.layout.game_screen);
         populate_buttons();
-
         setUpSoundPool();
-
-        // remove this later
-//        String s = game_details.show_flowers_coordinates();
-//        Log.d(TAG, "\nFlower coordinates: ");
-//        Log.d(TAG, s);
-
-
     }
 
     // this sets up SoundPool which helps this app play sounds when a flower is found
