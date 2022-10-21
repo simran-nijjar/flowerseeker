@@ -21,6 +21,10 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,6 +49,9 @@ public class GameScreen extends AppCompatActivity {
     private final String TAG = "GAME_SCREEN_TAG";
     int scans_used_count;
 
+    private SoundPool soundPool;
+    private int sound1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +68,9 @@ public class GameScreen extends AppCompatActivity {
         scans_used_count = 0;
         setContentView(R.layout.game_screen);
         populate_buttons();
+
+        setUpSoundPool();
+
         // remove this later
 //        String s = game_details.show_flowers_coordinates();
 //        Log.d(TAG, "\nFlower coordinates: ");
@@ -69,6 +79,33 @@ public class GameScreen extends AppCompatActivity {
 
     }
 
+    // this sets up SoundPool which helps this app play sounds when a flower is found
+    private void setUpSoundPool() {
+
+        // if App OS uses an older version, set up the legacy way
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build();
+
+            soundPool = new SoundPool.Builder()
+                    .setMaxStreams(6)
+                    .setAudioAttributes(audioAttributes)
+                    .build();
+
+        } else { // if app OS is older version
+            soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        }
+
+        // get sound from raw file
+        sound1 = soundPool.load(this, R.raw.sound1, 1);
+    }
+
+    // helper function to play sound
+    private void playGlitterSound() {
+        soundPool.play(sound1, 1, 1, 0, 0, 1);
+    }
     /*
         This method returns the Game Screen intent to the Main Menu
      */
@@ -134,8 +171,12 @@ public class GameScreen extends AppCompatActivity {
         Resources resource = getResources();
 
         int hint = game_details.get_hint(row, col);
-        // if user guessed correctly, display flower
-        if (hint == -1) {
+
+
+        if (hint == -1) { // if user guessed correctly, display flower
+
+            // play a sound when a flower is found
+            playGlitterSound();
             btn.setBackground(new BitmapDrawable(resource, scaledBitmap));
             // update ui
             TextView flowers_found_tx = findViewById(R.id.tx_found_flowers_count);
@@ -143,8 +184,7 @@ public class GameScreen extends AppCompatActivity {
 
             decrement_hints(row, col);
         }
-        else {
-            //Change text on button
+        else { // if flower is not found, show the hint
             btn.setText(Integer.toString(hint));
         }
 
