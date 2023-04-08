@@ -1,6 +1,6 @@
 # Flower Seeker
 
-Flower Seeker is a variation of the Mine Sweeper game. This application was created in Java using Android Studio. Flower Sweeper was created as a partner project for my CMPT 276 Introduction to Software Engineering Class taught by Dr. Brian Fraser. I obtained permission from Dr. Fraser to post this assignment publicly. 
+Flower Seeker is a variation of the Mine Sweeper game. This application was created in Java using Android Studio. Flower Sweeper was created as a partner project for my CMPT 276 Introduction to Software Engineering Class in Fall 2022 taught by Dr. Brian Fraser. I obtained permission from Dr. Fraser to post this assignment publicly. 
 
 ## Contribution:
 - I created the welcome screen, main menu screen, game screen, help screen, and options screen. 
